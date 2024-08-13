@@ -1,46 +1,43 @@
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let quantityInputs = document.querySelectorAll('.quantity input');
-        
-        function updateGrandTotal() {
-            let grandTotal = 0;
-            let rows = document.querySelectorAll('.cart-list tbody tr');
-            rows.forEach(function(row) {
-                let total = parseFloat(row.querySelector('.total').innerText.replace('$', ''));
-                if (!isNaN(total)) {
-                    grandTotal += total;
-                }
-            });
-            document.querySelector('#grand-total').innerText = '$' + grandTotal.toFixed(2);
-            document.querySelector('#subtotal').innerText = '$' + grandTotal.toFixed(2);
-        }
+    function updateProductTotal(selectElement) {
+        const quantity = parseInt(selectElement.value) || 0;
+        const price = parseFloat(selectElement.dataset.price);
+        const productTotalElement = selectElement.closest('tr').querySelector('.product-total');
+        const productTotal = (quantity * price).toFixed(2);
 
-        quantityInputs.forEach(function(input) {
-            input.addEventListener('input', function() {
-                let price = parseFloat(this.closest('tr').querySelector('.price').innerText.replace('$', ''));
-                let quantity = parseInt(this.value);
-                
-                // تأكد من أن الكمية صالحة
-                if (isNaN(quantity) || quantity <= 0) {
-                    quantity = 0;
-                }
-
-                let total = price * quantity;
-                
-                // تأكد من أن الإجمالي ليس NaN
-                if (isNaN(total)) {
-                    total = 0;
-                }
-
-                this.closest('tr').querySelector('.total').innerText = '$' + total.toFixed(2);
-
-                updateGrandTotal();
-            });
-        });
+        productTotalElement.innerText = productTotal;
 
         updateGrandTotal();
+    }
+
+    function updateGrandTotal() {
+        let grandTotal = 0;
+        document.querySelectorAll('.product-total').forEach(function(totalElement) {
+            let total = parseFloat(totalElement.innerText);
+            grandTotal += total;
+        });
+        document.getElementById('cart-subtotal').innerText = `$${grandTotal.toFixed(2)}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateGrandTotal();
+
+        document.querySelectorAll('.quantity-select').forEach(function(selectElement) {
+            setTimeout(function() {
+                const options = selectElement.querySelectorAll('option');
+                const randomIndex = Math.floor(Math.random() * options.length);
+                selectElement.value = options[randomIndex].value;
+                updateProductTotal(selectElement);
+            }, 50);
+
+            setTimeout(function() {
+                selectElement.value = 1;
+                updateProductTotal(selectElement);
+            }, 250);
+            
+            selectElement.addEventListener('change', function() {
+                updateProductTotal(selectElement);
+            });
+        });
     });
 </script>
-
-
-

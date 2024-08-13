@@ -26,8 +26,8 @@ class shop{
 
     public function getproduct($data){
         $this->db->query('SELECT p.*, c.quantity as cart_quantity 
-FROM products_test p
-LEFT JOIN cart_test c 
+FROM products p
+LEFT JOIN cart c 
 ON p.id = c.product_id 
 AND c.user_id = :user_id;');
 

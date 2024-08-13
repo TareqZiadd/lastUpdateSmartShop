@@ -7,7 +7,7 @@
 
 
 
-  $_SESSION['user_id'] =11;
+  $_SESSION['user_id'] =2;
   //unset($_SESSION['user_id']);
 
 

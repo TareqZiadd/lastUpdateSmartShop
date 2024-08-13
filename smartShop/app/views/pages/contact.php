@@ -1,4 +1,3 @@
-
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div class="hero-wrap hero-bread" style="background-image: url(<?php echo URLROOT; ?>/images/post-item7.jpg)">
     <div class="container">
@@ -17,53 +16,59 @@
             <div class="w-100"></div>
             <div class="col-md-3 d-flex">
                 <div class="info bg-white p-4">
-                    <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                <p><span>Address:</span> Amman - Al Madinah Street - Building No. 10</p>
                 </div>
             </div>
             <div class="col-md-3 d-flex">
                 <div class="info bg-white p-4">
-                    <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                <p><span>Phone:</span> <a href="tel://0771234567">+962 77 123 4567</a></p>
                 </div>
             </div>
             <div class="col-md-3 d-flex">
                 <div class="info bg-white p-4">
-                    <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                    <p><span>Email:</span> <a href="mailto:info@yoursite.com">s_shop01@gmail.com</a></p>
                 </div>
             </div>
             <div class="col-md-3 d-flex">
                 <div class="info bg-white p-4">
-                    <p><span>Website</span> <a href="#">yoursite.com</a></p>
+                    <p><span>Website</span> <a href="#">smartshop.com</a></p>
                 </div>
             </div>
         </div>
         <div class="row block-9">
             <div class="col-md-6 order-md-last d-flex">
-                <form action="#" class="bg-white p-5 contact-form">
+                <form action="<?php echo URLROOT; ?>/pages/contact" class="bg-white p-5 contact-form" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name">
+                        <input type="text" class="form-control" name="full_name" placeholder="Your Name" value="<?php echo $data['full_name'] ?? ''; ?>">
+                        <span class="text-danger"><?php echo $data['full_name_err'] ?? ''; ?></span>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Email">
+                        <input type="email" class="form-control" name="email" placeholder="Your Email" value="<?php echo $data['email'] ?? ''; ?>">
+                        <span class="text-danger"><?php echo $data['email_err'] ?? ''; ?></span>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
+                        <input type="text" class="form-control" name="subject" placeholder="Subject" value="<?php echo $data['subject'] ?? ''; ?>">
+                        <span class="text-danger"><?php echo $data['subject_err'] ?? ''; ?></span>
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                        <textarea cols="30" rows="7" class="form-control" name="message" placeholder="Message" maxlength="500"><?php echo $data['message'] ?? ''; ?></textarea>
+                        <span class="text-danger"><?php echo $data['message_err'] ?? ''; ?></span>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
                     </div>
                 </form>
-
             </div>
 
             <div class="col-md-6 d-flex">
-                <div id="map" class="bg-white"></div>
+                <div class="bg-white p-3">
+                    <img src="https://cdn.shulex-voc.com/shulex/upload/2024-06-28/1eb69cab-1135-4e1b-9e02-38204c7aeec9.jpg" alt="Image" class="img-fluid">
+                </div>
             </div>
         </div>
     </div>
 </section>
+
 <section class="ftco-gallery">
     <div class="container">
         <div class="row justify-content-center">
@@ -75,49 +80,9 @@
     </div>
     <div class="container-fluid px-0">
         <div class="row no-gutters">
-            <div class="col-md-4 col-lg-2 ftco-animate">
-                <a href="images/gallery-1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo URLROOT; ?>/images/insta-item2.jpg)">
-                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                        <span class="icon-instagram"></span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-lg-2 ftco-animate">
-                <a href="images/gallery-2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo URLROOT; ?>/images/insta-item3.jpg)">
-                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                        <span class="icon-instagram"></span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-lg-2 ftco-animate">
-                <a href="images/gallery-3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo URLROOT; ?>/images/insta-item4.jpg)">
-                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                        <span class="icon-instagram"></span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-lg-2 ftco-animate">
-                <a href="images/gallery-4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo URLROOT; ?>/images/insta-item5.jpg)">
-                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                        <span class="icon-instagram"></span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-lg-2 ftco-animate">
-                <a href="images/gallery-5.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo URLROOT; ?>/images/cat-item6.png)">
-                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                        <span class="icon-instagram"></span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-lg-2 ftco-animate">
-                <a href="images/gallery-6.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?php echo URLROOT; ?>/images/insta-item6.jpg)">
-                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                        <span class="icon-instagram"></span>
-                    </div>
-                </a>
-            </div>
+            <!-- Gallery Items Here -->
         </div>
     </div>
 </section>
+
 <?php require APPROOT . '/views/inc/footer.php'; ?>

@@ -13,7 +13,7 @@
                 <li class="nav-item"><a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a></li>
                 <li class="nav-item"><a href="<?php echo URLROOT; ?>/pages/blog" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="<?php echo URLROOT; ?>/pages/contact" class="nav-link">Contact</a></li>
-                <li class="nav-item cta cta-colored"><a href="<?php echo URLROOT; ?>/carts" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                <li class="nav-item cta cta-colored"><a href="<?php echo URLROOT; ?>/carts" class="nav-link"><span>Cart</span></a></li>
                 <li class="nav-item"><a href="<?php echo URLROOT; ?>/users/login" class="nav-link">Login</a></li>
                 <li class="nav-item"><a href="<?php echo URLROOT; ?>/users/register" class="nav-link">Sign Up</a></li>
 
